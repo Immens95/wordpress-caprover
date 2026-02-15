@@ -6,6 +6,9 @@ RUN rm -f /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 # Copia la configurazione PHP personalizzata
 COPY custom-php.ini /usr/local/etc/php/conf.d/zzz-custom-php.ini
 
+# Copia la configurazione PHP personalizzata
+COPY php.ini /usr/local/etc/php/php.ini
+
 # Copia il wp-config personalizzato
 COPY wp-config.php /usr/src/wordpress/wp-config.php
 
