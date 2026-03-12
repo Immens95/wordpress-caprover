@@ -18,6 +18,9 @@ RUN mkdir -p /tmp/opcache && chown www-data:www-data /tmp/opcache
 # Copia wp-config personalizzato
 COPY wp-config.php /usr/src/wordpress/wp-config.php
 RUN chown www-data:www-data /usr/src/wordpress/wp-config.php
+# Imposta permessi sicuri: leggibile ma non scrivibile da www-data
+RUN chown root:www-data /usr/src/wordpress/wp-config.php \
+    && chmod 440 /usr/src/wordpress/wp-config.php
 
 WORKDIR /var/www/html
 
