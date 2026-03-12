@@ -8,9 +8,6 @@ RUN rm -f /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 RUN pecl install redis \
     && docker-php-ext-enable redis
 
-# Installa OPcache (assicurati che sia compilato nel PHP)
-RUN docker-php-ext-install opcache
-
 # Copia la configurazione PHP personalizzata
 COPY custom-php.ini /usr/local/etc/php/conf.d/zzz-custom-php.ini
 COPY php.ini /usr/local/etc/php/php.ini
